@@ -1,0 +1,24 @@
+f_email - fake email
+f_password - fake password
+
+clr - clear the output (not cancel the console)
+
+//ip - find your IP
+packet sniff - sniff network traffic on given IP
+
+cmd - open up the cmd command line
+powershell - open up the powershell command line
+
+info - more information about it the console
+
+webrunhttp - run over 100,000 http requests under 10 sec
+
+credit - show credit
+licence - show licence
+
+show - show hax to use ;)
+
+ping - ping an ip
+ping --limit - limit per pinging
+
+show - shows the modules for other nesisary thing
