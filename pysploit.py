@@ -1,5 +1,5 @@
 #----------------------------------------
-#authour - The United Hacker
+#authour - AnOnYmOuS
 #criedits - in the credit file
 #start date - april 29 2021
 #release date - still in progress
@@ -18,6 +18,7 @@ import re
 from bs4 import BeautifulSoup
 from time import sleep
 import os, platform
+
 
 spam=1
 
@@ -245,25 +246,32 @@ while (command_input==command_input):
                 spam+=1
                 print('*[Sending Requests To] '+website_choise +' '+spam)
 
-    if command_input=="quit":
-        sure=input('are you sure you wanna exit [y]or[n] : ')
-        if sure=='y':
-            exit()
-
-        if sure=='n':
-            command_input=str(input("con_hac> "))
 
     if command_input=="show":
         print('Hax/web/ip')
         print('Hax/phishing/web')
         print('Hax/email/bomb')
-        print('Hax/username/web')
         print('Hax/web/scraping')
-        print('Hax/(content unavalible)')
+        print('Hax/ditionary/pass')
         print('Hax/(content unavalible)')
         print('Hax/(content unavalible)')
         print('Hax/(content unavalible)')
         command_input=str(input("con_hac> "))
+
+    if command_input=="use Hax/ditionary/pass":
+        command_input=str(input("con_hac/Hax/ditionary/pass> "))
+
+        if command_input=="passwordhash_sha256":
+            exec(open('pysploit_dictionary_sha256.py').read())
+            command_input=str(input("con_hac/Hax/ditionary/pass> "))
+
+        if command_input=="passwordhash_md5":
+            exec(open('pysploit_dictionary_md5.py').read())
+            command_input=str(input("con_hac/Hax/ditionary/pass> "))
+
+        if command_input=="return":
+            command_input=str(input("con_hac> "))
+
 
     if command_input=="use Hax/web/scraping":
         command_exploit=input("con_hac/Hax/web/ip > ")
@@ -323,15 +331,6 @@ while (command_input==command_input):
         if command_exploit=="return":
             command_input=str(input("con_hac> "))
 
-        if command_exploit=="quit":
-            sure=input('are you sure you wanna exit [y]or[n] : ')
-
-            if sure=='y':
-                exit()
-
-            if sure=='n':
-                command_input=str(input("con_hac> "))
-
         if command_exploit=="clr":
             os.system('cls')
 
@@ -342,112 +341,6 @@ while (command_input==command_input):
 
             command_exploit=str(input("con_hac/Hax/web/ip> "))
 
-    if command_input=="Hax/username/web":
-
-        command_exploit==input("con_hac/Hax/username/web")
-
-        if command_exploit=="webuserget":
-                    username=input('The username > ')
-
-                    print('https://www.youtube.com/channel/'+username)
-                    print('https://www.chess.com/member/'+username)
-                    print('https://'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-                    print('https://www.'+username)
-
-                    command_exploit==str(input("con_hac/Hax/username/web"))
 
     if command_input=="use Hax/phishing/web":
         command_exploit=str(input("con_hac/Hax/phishing/web> "))
@@ -513,10 +406,6 @@ while (command_input==command_input):
     if command_input=="info":
         w=open('info.txt', 'r')
         print(w.read())
-
-        command_exploit=str(input("con_hac> "))
-
-    if command_input=="":
 
         command_exploit=str(input("con_hac> "))
 
