@@ -6,6 +6,7 @@ i hope you enjoy it don't hate please
 python - 3.7 or up
 
 pip install requests
+
 pip install pyautogui
 
 # IMPORTANT
