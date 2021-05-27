@@ -18,20 +18,20 @@ import re
 from bs4 import BeautifulSoup
 from time import sleep
 import os, platform
-
+from colorama import Fore, Back, Style
 
 spam=1
 
 
-The_United_Hacker='''
-███╗░░░███╗██╗░░░██╗  ██╗░░██╗░█████╗░██╗░░██╗
-████╗░████║╚██╗░██╔╝  ██║░░██║██╔══██╗╚██╗██╔╝
-██╔████╔██║░╚████╔╝░  ███████║███████║░╚███╔╝░
-██║╚██╔╝██║░░╚██╔╝░░  ██╔══██║██╔══██║░██╔██╗░
-██║░╚═╝░██║░░░██║░░░  ██║░░██║██║░░██║██╔╝╚██╗
-╚═╝░░░░░╚═╝░░░╚═╝░░░  ╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝
+banner='''
+██████╗░██╗░░░██╗░██████╗██████╗░██╗░░░░░░█████╗░██╗████████╗
+██╔══██╗╚██╗░██╔╝██╔════╝██╔══██╗██║░░░░░██╔══██╗██║╚══██╔══╝
+██████╔╝░╚████╔╝░╚█████╗░██████╔╝██║░░░░░██║░░██║██║░░░██║░░░
+██╔═══╝░░░╚██╔╝░░░╚═══██╗██╔═══╝░██║░░░░░██║░░██║██║░░░██║░░░
+██║░░░░░░░░██║░░░██████╔╝██║░░░░░███████╗╚█████╔╝██║░░░██║░░░
+╚═╝░░░░░░░░╚═╝░░░╚═════╝░╚═╝░░░░░╚══════╝░╚════╝░╚═╝░░░╚═╝░░░
 '''
-print(The_United_Hacker)
+print(banner)
 
 command_input=input("con_hac> ")
 
@@ -253,13 +253,26 @@ while (command_input==command_input):
         print('Hax/email/bomb')
         print('Hax/web/scraping')
         print('Hax/ditionary/pass')
-        print('Hax/(content unavalible)')
+        print('Hax/brute/pass')
         print('Hax/(content unavalible)')
         print('Hax/(content unavalible)')
         command_input=str(input("con_hac> "))
 
+    if command_input=="Hax/brute/pass":
+        command_input=str(input("con_hac/Hax/brute/pass> "))
+        if command_input=="brute_all":
+            exec(open('pysploit_brut.py').read())
+
+        while (command_input):
+            command_input=str(input("con_hac/Hax/brute/pass> "))
+
     if command_input=="use Hax/ditionary/pass":
         command_input=str(input("con_hac/Hax/ditionary/pass> "))
+
+        if command_input=="clr":
+            os.system('cls')
+
+            command_input=str(input("con_hac/Hax/ditionary/pass> "))
 
         if command_input=="passwordhash_sha256":
             exec(open('pysploit_dictionary_sha256.py').read())
@@ -271,6 +284,9 @@ while (command_input==command_input):
 
         if command_input=="return":
             command_input=str(input("con_hac> "))
+
+        while (command_input):
+            command_input=str(input("con_hac/Hax/ditionary/pass> "))
 
 
     if command_input=="use Hax/web/scraping":
@@ -419,5 +435,7 @@ while (command_input==command_input):
 
         command_exploit=str(input("con_hac> "))
 
-    if command_input=="":
-        pass
+    if command_input=="banner":
+        print(banner)
+
+        command_exploit=str(input("con_hac> "))
