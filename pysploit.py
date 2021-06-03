@@ -6,7 +6,7 @@
 #----------------------------------------
 
 
-
+import nmap
 import datetime
 import os, platform
 import pyautogui
@@ -25,14 +25,14 @@ spam=1
 
 print('testing')
 banner='''
-������W���W�����W�������W������W���W�����������W���W��������W
-��TPP��WZ��W���T]��TPPPP]��TPP��W��Q�������TPP��W��QZPP��TPP]
-������T]�Z����T]�Z�����W�������T]��Q�������Q����Q��Q�����Q���
-��TPPP]���Z��T]���ZPPP��W��TPPP]���Q�������Q����Q��Q�����Q���
-��Q����������Q���������T]��Q������������WZ�����T]��Q�����Q���
-ZP]��������ZP]���ZPPPPP]�ZP]�����ZPPPPPP]�ZPPPP]�ZP]���ZP]���
+██████╗░██╗░░░██╗░██████╗██████╗░██╗░░░░░░█████╗░██╗████████╗
+██╔══██╗╚██╗░██╔╝██╔════╝██╔══██╗██║░░░░░██╔══██╗██║╚══██╔══╝
+██████╔╝░╚████╔╝░╚█████╗░██████╔╝██║░░░░░██║░░██║██║░░░██║░░░
+██╔═══╝░░░╚██╔╝░░░╚═══██╗██╔═══╝░██║░░░░░██║░░██║██║░░░██║░░░
+██║░░░░░░░░██║░░░██████╔╝██║░░░░░███████╗╚█████╔╝██║░░░██║░░░
+╚═╝░░░░░░░░╚═╝░░░╚═════╝░╚═╝░░░░░╚══════╝░╚════╝░╚═╝░░░╚═╝░░░
 
-'''+"       "+datetime.datetime.now()
+'''+"       "+str(datetime.datetime.now())
 print(banner)
 
 command_input=input("con_hac> ")
@@ -250,362 +250,397 @@ while (command_input==command_input):
 
 
     if command_input=="show":
-        print('Hax/web/ip'+"Description: Find The IP Address Of A Website ")
-        print('Hax/copy/web'+"Description: Make A Phishing Website To Get Details")
-        print('Hax/email/bomb'+"Description: Spam Someone's Inbox Of Email")
-        print('Hax/web/scraping'+"Description: Scrap Any Website")
-        print('Hax/pass/attack'+"Description: Do a Dictionary Or Brute Force Attack")
-        print('Hax/(content unavalible)'+"Description: ")
-        print('Hax/(content unavalible)'+"Description: ")
-        print('Hax/(content unavalible)'+"Description: ")
+        print('Hax/web/ip'+"    "+"Description: Find The IP Address Of A Website ")
+        print('Hax/copy/web'+"  "+"Description: Make A Phishing Website To Get Details")
+        print('Hax/email/bomb'+"    "+"Description: Spam Someone's Inbox Of Email")
+        print('Hax/web/scraping'+"  "+"Description: Scrap Any Website")
+        print('Hax/pass/attack'+"   "+"Description: Do a Dictionary Or Brute Force Attack")
+        print('Hax/network/scan'+"  "+"Description: Port Scanner")
+        print('Hax/(content unavalible)'+"  "+"Description: ")
+        print('Hax/(content unavalible)'+"  "+"Description: ")
         command_input=str(input("con_hac> "))
+    
+    if command_input=="use Hax/network/scan":
+        command_input=str(input('con_hac/Hax/network/scan> '))
 
+        while True:
+            command_input=input('con_hac/Hax/network/scan> ')
+
+            if command_input=="scan":
+                begining_port=input('Begining port : ')
+                end_port=input('end port : ')
+                target_ip=input('Ip check : ')
+                scanner=nmap.PortScanner()
+
+                for i in random(begining_port, end_port+1):
+                    res=scanner.scan(target_ip, str(i))
+                
+                command_input=str(input('con_hac/Hax/network/scan> '))
+
+            if command_input=="scan_check":
+                begining_port=input('Begining port : ')
+                end_port=input('end port : ')
+                target_ip=input('Ip check : ')
+                scanner=nmap.PortScanner()
+
+                for i in random(begining_port, end_port+1):
+                    res=scanner.scan(target_ip, str(i))
+                    res=res['scan'][target_ip]['tcp'][i]['state']
+                    print(f'Port {i} is {res}.')
+
+                    command_input=str(input('con_hac/Hax/network/scan>'))
+    
     if command_input=="use Hax/pass/attack":
         command_input=str(input("con_hac/Hax/pass/attack> "))
-        if command_input=="brute_all":
-            exec(open('pysploit_brut.py').read())
 
-        if command_input=="dict_attack":
-            print("""
-            1. md5
-            2. sha256
-            3. sha512
-            4. sha1
-            5. sha2""")
-
-            dict_choise=input('> ')
-
-            if dict_choise=='1':
-                exec(open('pysploit_dictionary_md5.py'))
-                command_input=str(input("con_hac/Hax/pass/attack> "))
-
-            if dict_choise=='2':
-                exec(open('pysploit_dictionary_256.py'))
-                command_input=str(input("con_hac/Hax/pass/attack> "))
-
-            if dict_choise=='3':
-                exec(open('pysploit_dictionary_sha512.py'))
-                command_input=str(input("con_hac/Hax/pass/attack> "))
-
-            if dict_choise=='4':
-                exec(open('pysploit_dictionary_sha1.py'))
-                command_input=str(input("con_hac/Hax/pass/attack> "))
-
-            if dict_choise=='5':
-                exec(open('pysploit_dictionary_sha2.py'))
-                command_input=str(input("con_hac/Hax/pass/attack> "))
-
-        if command_input=="ping":
-            try:
-                IP=input('IP : ')
-                os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
-
-                while (host):
-                    os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
-            
-            except:
-                command_input=str(input("con_hac/Hax/pass/attack> "))
-
-        if command_input=="ping --limit":
-            try:
-                limit=input('The Limit : ')
-                IP=input('IP : ')
-
-                ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
-                print(ping)
-
-                while (ping):
-                    ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
-                    print(ping)
-                    sleep(float(limit))
-            
-            except:
-                command_input=str(input("con_hac/Hax/pass/attack> "))
-        
-        if command_input=="clr":
-            os.system('clear')
-
+        while True:
             command_input=str(input("con_hac/Hax/pass/attack> "))
-        
-        if command_input=="return":
-            command_input=str(input("con_hac> "))
-        
-        if command_input=="//ip":
-            os.system('ip addr')
 
-            command_input=str(input("con_hac/Hax/pass/attack> "))
+            if command_input=="brute_all":
+                exec(open('pysploit_brut.py').read())
+
+            if command_input=="dict_attack":
+                print("""
+                1. md5
+                2. sha256
+                3. sha512
+                4. sha1
+                5. sha2""")
+
+                dict_choise=input('> ')
+
+                if dict_choise=='1':
+                    exec(open('pysploit_dictionary_md5.py'))
+                    command_input=str(input("con_hac/Hax/pass/attack> "))
+
+                if dict_choise=='2':
+                    exec(open('pysploit_dictionary_256.py'))
+                    command_input=str(input("con_hac/Hax/pass/attack> "))
+
+                if dict_choise=='3':
+                    exec(open('pysploit_dictionary_sha512.py'))
+                    command_input=str(input("con_hac/Hax/pass/attack> "))
+
+                if dict_choise=='4':
+                    exec(open('pysploit_dictionary_sha1.py'))
+                    command_input=str(input("con_hac/Hax/pass/attack> "))
+
+                if dict_choise=='5':
+                    exec(open('pysploit_dictionary_sha2.py'))
+                    command_input=str(input("con_hac/Hax/pass/attack> "))
+
+                if command_input=="ping":
+                    try:
+                        IP=input('IP : ')
+                        os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+
+                        while True:
+                            os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+                    
+                    except:
+                        command_input=str(input("con_hac/Hax/pass/attack> "))
+
+                if command_input=="ping --limit":
+                    try:
+                        limit=input('The Limit : ')
+                        IP=input('IP : ')
+
+                        ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+                        print(ping)
+
+                        while (ping):
+                            ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+                            print(ping)
+                            sleep(float(limit))
+                    
+                    except:
+                        command_input=str(input("con_hac/Hax/pass/attack> "))
+                
+                if command_input=="clr":
+                    os.system('clear')
+
+                    command_input=str(input("con_hac/Hax/pass/attack> "))
+                
+                if command_input=="return":
+                    command_input=str(input("con_hac> "))
+                
+                if command_input=="//ip":
+                    os.system('ip addr')
+
+                    command_input=str(input("con_hac/Hax/pass/attack> "))
 
     if command_input=="use Hax/web/scraping":
-        command_input=input("con_hac/Hax/web/scraping > ")
+        command_input=str(input("con_hac/Hax/web/scraping > "))
 
-        if command_input=="ping":
-            try:
-                IP=input('IP : ')
-                os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
 
-                while (host):
+        while True:
+            command_input=str(input("con_hac/Hax/web/scraping > "))
+            
+            if command_input=="ping":
+                try:
+                    IP=input('IP : ')
                     os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
-        
-            except:
-                command_input=str(input("con_hac/Hax/web/scraping > "))
 
-        if command_input=="ping --limit":
-            try:
-                limit=input('The Limit : ')
-                IP=input('IP : ')
+                    while True:
+                        os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+            
+                except:
+                    command_input=str(input("con_hac/Hax/web/scraping > "))
 
-                ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
-                print(ping)
+            if command_input=="ping --limit":
+                try:
+                    limit=input('The Limit : ')
+                    IP=input('IP : ')
 
-                while (ping):
                     ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
                     print(ping)
-                    sleep(float(limit))
+
+                    while (ping):
+                        ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+                        print(ping)
+                        sleep(float(limit))
+            
+                except:
+                    command_input=str(input("con_hac/Hax/web/scraping > "))
         
-            except:
+            if command_input=="clr":
+                os.system('clear')
+
                 command_input=str(input("con_hac/Hax/web/scraping > "))
-    
-        if command_input=="clr":
-            os.system('clear')
+        
+            if command_input=="return":
+                command_input=str(input("con_hac> "))
 
-            command_input=str(input("con_hac/Hax/web/scraping > "))
-    
-        if command_input=="return":
-            command_input=str(input("con_hac> "))
+            if command_input=="//ip":
+                os.system('ip addr')
 
-        if command_input=="//ip":
-            os.system('ip addr')
+                command_input=str(input("con_hac/Hax/pass/attack> "))
 
-            command_input=str(input("con_hac/Hax/pass/attack> "))
+            if command_input=="quickscr":
+                website=input('Website > ')
 
-        while (command_input):
-            command_input=str(input("con_hac/Hax/web/scraping > "))
+                data=requests.get(website)
 
-        if command_input=="quickscr":
-            website=input('Website > ')
+                phones = re.findall(r'(\(?[0-9]{3}\)?(?:\-|\s|\.)?[0-9]{3}(?:\-|\.)[0-9]{4})', data.text)
+                emails = re.findall(r'([\d\w\.]+@[\d\w\.\-]+\.\w+)', data.text)
 
-            data=requests.get(website)
+                print(phones, emails)
 
-            phones = re.findall(r'(\(?[0-9]{3}\)?(?:\-|\s|\.)?[0-9]{3}(?:\-|\.)[0-9]{4})', data.text)
-            emails = re.findall(r'([\d\w\.]+@[\d\w\.\-]+\.\w+)', data.text)
+                command_input=command_input=str(input("con_hac/Hax/web/scraping > "))
 
-            print(phones, emails)
+            if command_input=="lotscrp":
 
-            command_input=command_input=str(input("con_hac/Hax/web/scraping > "))
+                website=input('Website > ')
+                data=requests.get(website)
 
-        if command_input=="lotscrp":
+                soup=BeautifulSoup(data.text, 'html.parser')
 
-            website=input('Website > ')
-            data=requests.get(website)
+                data=[]
+                for tr in soup.find_all('tr'):
+                    values=[td.text for td in tr.find_all('td')]
+                    data.append(values)
+                print(data)
 
-            soup=BeautifulSoup(data.text, 'html.parser')
-
-            data=[]
-            for tr in soup.find_all('tr'):
-                values=[td.text for td in tr.find_all('td')]
-                data.append(values)
-            print(data)
-
-            command_input=str(input("con_hac/Hax/web/scraping > "))
+                command_input=str(input("con_hac/Hax/web/scraping > "))
 
 
     if command_input=="use Hax/web/ip":
         command_input=input("con_hac/Hax/web/ip> ")
 
-        while(command_input):
+        while True:
             command_input=str(input("con_hac/Hax/web/ip> "))
 
-        if command_input=="webgeturl":
-            url=input('Website > ')
-            print(socket.gethostbyname(url))
-
-            command_input=str(input("con_hac/Hax/web/ip> "))
-
-        if command_input=="webgeturl rapid":
-            try:
+            if command_input=="webgeturl":
                 url=input('Website > ')
                 print(socket.gethostbyname(url))
 
-                while (url):
+                command_input=str(input("con_hac/Hax/web/ip> "))
+
+            if command_input=="webgeturl rapid":
+                try:
                     url=input('Website > ')
                     print(socket.gethostbyname(url))
 
-            except:
-                command_input=str(input("con_hac/Hax/web/ip> "))
+                    while (url):
+                        url=input('Website > ')
+                        print(socket.gethostbyname(url))
+
+                except:
+                    command_input=str(input("con_hac/Hax/web/ip> "))
 
 
-        if command_input=="ping":
-            try:
-                IP=input('IP : ')
-                os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
-
-                while (host):
+            if command_input=="ping":
+                try:
+                    IP=input('IP : ')
                     os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
-                
-            except:
-                command_input=str(input("con_hac/Hax/web/ip> "))
 
-        if command_input=="ping --limit":
-            try:
-                limit=input('The Limit : ')
-                IP=input('IP : ')
+                    while True:
+                        os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+                    
+                except:
+                    command_input=str(input("con_hac/Hax/web/ip> "))
 
-                ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
-                print(ping)
+            if command_input=="ping --limit":
+                try:
+                    limit=input('The Limit : ')
+                    IP=input('IP : ')
 
-                while (ping):
                     ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
                     print(ping)
-                    sleep(float(limit))
+
+                    while (ping):
+                        ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+                        print(ping)
+                        sleep(float(limit))
+                
+                except:
+                    command_input=str(input("con_hac/Hax/web/ip> "))
             
-            except:
+            if command_input=="clr":
+                os.system('clear')
+
                 command_input=str(input("con_hac/Hax/web/ip> "))
-        
-        if command_input=="clr":
-            os.system('clear')
+            
+            if command_input=="return":
+                command_input=str(input("con_hac> "))
+            
+            if command_input=="//ip":
+                os.system('ip addr')
 
-            command_input=str(input("con_hac/Hax/web/ip> "))
-        
-        if command_input=="return":
-            command_input=str(input("con_hac> "))
-        
-        if command_input=="//ip":
-            os.system('ip addr')
-
-            command_input=str(input("con_hac/Hax/web/ip> "))
+                command_input=str(input("con_hac/Hax/web/ip> "))
 
 
     if command_input=="use Hax/copy/web":
         command_input=str(input("con_hac/Hax/copy/web> "))
 
-        while (command_input):
+        while True:
             command_input=str(input("con_hac/Hax/copy/web> "))
 
-        if command_input=="sendwebfile":
-            url = input('Webpage to grab source from: ')
-            html_output_name = input('Name for html file: ')
+            if command_input=="sendwebfile":
+                url = input('Webpage to grab source from: ')
+                html_output_name = input('Name for html file: ')
 
-            req = requests.get(url, 'html.parser')
+                req = requests.get(url, 'html.parser')
 
-            with open(html_output_name, 'w') as f:
-                f.write()
-                f.close()
+                with open(html_output_name, 'w') as f:
+                    f.write()
+                    f.close()
 
-            print('now you have a copy of a web')
-            command_input=str(input("con_hac/Hax/copy/web> "))
-
-        
-        if command_input=="ping":
-            try:
-                IP=input('IP : ')
-                os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
-
-                while (host):
-                    os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
-            
-            except:
+                print('now you have a copy of a web')
                 command_input=str(input("con_hac/Hax/copy/web> "))
 
-        if command_input=="ping --limit":
-            try:
-                limit=input('The Limit : ')
-                IP=input('IP : ')
+            
+            if command_input=="ping":
+                try:
+                    IP=input('IP : ')
+                    os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
 
-                ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
-                print(ping)
+                    while True:
+                        os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+                
+                except:
+                    command_input=str(input("con_hac/Hax/copy/web> "))
 
-                while (ping):
+            if command_input=="ping --limit":
+                try:
+                    limit=input('The Limit : ')
+                    IP=input('IP : ')
+
                     ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
                     print(ping)
-                    sleep(float(limit))
+
+                    while (ping):
+                        ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+                        print(ping)
+                        sleep(float(limit))
+                
+                except:
+                    command_input=str(input("con_hac/Hax/copy/web> "))
             
-            except:
+            if command_input=="clr":
+                os.system('clear')
+
+                command_input=str(input("con_hac/Hax/copy/web> "))
+            
+            if command_input=="return":
+                command_input=str(input("con_hac> "))
+            
+            if command_input=="//ip":
+                os.system('ip addr')
+
                 command_input=str(input("con_hac/Hax/copy/web> "))
         
-        if command_input=="clr":
-            os.system('clear')
-
-            command_input=str(input("con_hac/Hax/copy/web> "))
-        
-        if command_input=="return":
-            command_input=str(input("con_hac> "))
-        
-        if command_input=="//ip":
-            os.system('ip addr')
-
-            command_input=str(input("con_hac/Hax/copy/web> "))
-    
     if command_input=="use Hax/email/bomb":
         command_input=str(input('con_hac/Hax/email/bomb>'))
 
-        while(command_input):
+        while True:
             command_input=str(input('con_hac/Hax/email/bomb>'))
         
-        if command_input=="email_bomb --limit":
-            limit=input('Spam Times > ')
-            email=input('your email : ')
-            password_email=input('your password : ')
-            msg=input('what message : ')
+            if command_input=="email_bomb --limit":
+                limit=input('Spam Times > ')
+                email=input('your email : ')
+                password_email=input('your password : ')
+                msg=input('what message : ')
 
-            for i in range(limit):
-                pass
-                
-                while True:
-                    print('sending email')
-                    break
-                
-                while False:
-                    print('done')
-                    command_input=str(input('con_hac/Hax/email/bomb>' ))
-                    break
-        
-        
-        if command_input=="email_bomb --time_limit":
-            time_limit=input('Time : ')
-            email=input('your email : ')
-            password_email=input('your password : ')
-            msg=input('what message : ')
+                for i in range(limit):
+                    pass
+                    
+                    while True:
+                        print('sending email')
+                        break
+                    
+                    while False:
+                        print('done')
+                        command_input=str(input('con_hac/Hax/email/bomb>' ))
+                        break
             
-            while time:
-                pass
+            
+            if command_input=="email_bomb --time_limit":
+                time_limit=input('Time : ')
+                email=input('your email : ')
+                password_email=input('your password : ')
+                msg=input('what message : ')
+                
+                while time:
+                    pass
 
-            time=sleep(float(time_limit))
-            print(time)
+                time=sleep(float(time_limit))
+                print(time)
 
-        if command_input=="ping":
-            try:
-                IP=input('IP : ')
-                os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
-
-                while (host):
+            if command_input=="ping":
+                try:
+                    IP=input('IP : ')
                     os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
-            
-            except:
-                command_input=str(input('con_hac/Hax/email/bomb> '))
 
-        if command_input=="ping --limit":
-            try:
-                limit=input('The Limit : ')
-                IP=input('IP : ')
+                    while True:
+                        os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+                
+                except:
+                    command_input=str(input('con_hac/Hax/email/bomb> '))
 
-                ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
-                print(ping)
+            if command_input=="ping --limit":
+                try:
+                    limit=input('The Limit : ')
+                    IP=input('IP : ')
 
-                while (ping):
                     ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
                     print(ping)
-                    sleep(float(limit))
-            
-            except:
-                command_input=str(input('con_hac/Hax/email/bomb> '))
-        
-        if command_input=="clr":
-            os.system('clear')
 
-            command_input=str(input('con_hac/Hax/email/bomb> '))
-        
-        if command_input=="return":
-            command_input=str(input("con_hac> "))
+                    while (ping):
+                        ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+                        print(ping)
+                        sleep(float(limit))
+                
+                except:
+                    command_input=str(input('con_hac/Hax/email/bomb> '))
+            
+            if command_input=="clr":
+                os.system('clear')
+
+                command_input=str(input('con_hac/Hax/email/bomb> '))
+            
+            if command_input=="return":
+                command_input=str(input("con_hac> "))
         
 
     if command_input=="ping":
@@ -613,7 +648,7 @@ while (command_input==command_input):
             IP=input('IP : ')
             os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
 
-            while (host):
+            while True:
                 os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
         
         except:
@@ -654,4 +689,21 @@ while (command_input==command_input):
     if command_input=="banner":
         print(banner)
 
+        command_input=str(input("con_hac> "))
+    
+    if command_input=="quit":
+        print('Abording')
+        exit()
+    
+    if command_input=="credits":
+        print('''
+        ==============================================================================
+        ==============================================================================
+        ==============================================================================''')
+        print("https://github.com/MohammadIsCoding1/")
+        print("https://www.youtube.com/channel/UC_tN73NX_750otcFUpqtaNw")
+        print('''
+        ==============================================================================
+        ==============================================================================
+        ==============================================================================''')
         command_input=str(input("con_hac> "))
