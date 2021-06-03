@@ -250,14 +250,14 @@ while (command_input==command_input):
 
 
     if command_input=="show":
-        print('Hax/web/ip'+"    "+"Description: Find The IP Address Of A Website ")
-        print('Hax/copy/web'+"  "+"Description: Make A Phishing Website To Get Details")
-        print('Hax/email/bomb'+"    "+"Description: Spam Someone's Inbox Of Email")
-        print('Hax/web/scraping'+"  "+"Description: Scrap Any Website")
-        print('Hax/pass/attack'+"   "+"Description: Do a Dictionary Or Brute Force Attack")
-        print('Hax/network/scan'+"  "+"Description: Port Scanner")
-        print('Hax/(content unavalible)'+"  "+"Description: ")
-        print('Hax/(content unavalible)'+"  "+"Description: ")
+        print('Hax/web/ip | Run It : use Hax/web/ip'+"\n"+"Description: Find The IP Address Of A Website\n")
+        print('Hax/copy/web | Run It : use Hax/copy/web'+"\n"+"Description: Make A Phishing Website To Get Details\n")
+        print('Hax/email/bomb | Run It: use Hax/email/bomb'+"\n"+"Description: Spam Someone's Inbox Of Email\n")
+        print('Hax/web/scraping | Run It: use Hax/web/scraping'+"\n"+"Description: Scrap Any Website\n")
+        print('Hax/pass/attack | Run It: use Hax/pass/attack'+"\n"+"Description: Do a Dictionary Or Brute Force Attack\n")
+        print('Hax/network/scan | Run It: use Hax/network/scan'+"\n"+"Description: Port Scanner\n")
+        print('Hax/(content unavalible)'+"\n"+"Description: \n")
+        print('Hax/(content unavalible)'+"\n"+"Description: \n")
         command_input=str(input("con_hac> "))
     
     if command_input=="use Hax/network/scan":
@@ -584,15 +584,6 @@ while (command_input==command_input):
 
                 for i in range(limit):
                     pass
-                    
-                    while True:
-                        print('sending email')
-                        break
-                    
-                    while False:
-                        print('done')
-                        command_input=str(input('con_hac/Hax/email/bomb>' ))
-                        break
             
             
             if command_input=="email_bomb --time_limit":
@@ -601,11 +592,10 @@ while (command_input==command_input):
                 password_email=input('your password : ')
                 msg=input('what message : ')
                 
-                while time:
-                    pass
 
-                time=sleep(float(time_limit))
-                print(time)
+                while True:
+                    sleep(time_limit)
+                    break
 
             if command_input=="ping":
                 try:
