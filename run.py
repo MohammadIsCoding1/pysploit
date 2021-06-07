@@ -1,2 +1,2 @@
 import pysploit
-pysploit.run.command=run()
+pysploit.run.pysploit.hack
