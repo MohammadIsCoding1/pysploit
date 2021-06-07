@@ -5,7 +5,6 @@
 #release date - still in progress
 #----------------------------------------
 
-
 import nmap
 import datetime
 import os, platform
@@ -16,6 +15,7 @@ import random
 import string
 import socket
 import re
+import threading
 from bs4 import BeautifulSoup
 from time import sleep
 from colorama import Fore, Back, Style
@@ -31,7 +31,10 @@ banner='''
 ██╔═══╝░░░╚██╔╝░░░╚═══██╗██╔═══╝░██║░░░░░██║░░██║██║░░░██║░░░
 ██║░░░░░░░░██║░░░██████╔╝██║░░░░░███████╗╚█████╔╝██║░░░██║░░░
 ╚═╝░░░░░░░░╚═╝░░░╚═════╝░╚═╝░░░░░╚══════╝░╚════╝░╚═╝░░░╚═╝░░░
-
+                    ____________________________
+  ------------------|   Payload: 1             |]
+                   [|          Hax: 10         |]
+                   [|__________________________|------------------
 '''+"       "+str(datetime.datetime.now())
 print(banner)
 
@@ -248,48 +251,123 @@ while (command_input==command_input):
                 spam+=1
                 print('*[Sending Requests To] '+website_choise +' '+spam)
 
+    if command_input=="show payload":
+        print('Payload/send/web_script')
 
-    if command_input=="show":
+    if command_input=="use Payload/send/web_script":
+        command_input=input('con_hac/Payload/send/web_script> ')
+
+        while True:
+            command_input=input('con_hac/Payload/send/web_script> ')
+            if command_input=="xss vuln":
+                target=raw_input('Url > ')
+
+                payload="<script>alert(XSS);<script>"
+
+                req=requests.post(target + payload)
+
+                if payload in req.text:
+                    print("XSS vulnerability discovered!")
+                    print("attacking payload : "+payload)
+                    command_input=str(input('con_hac/Payload/send/web_script> '))
+                else:
+                    print("secure")
+                    command_input=str(input('con_hac/Payload/send/web_script> '))
+            
+                if command_input=="ping":
+                    try:
+                        IP=input('IP : ')
+                        os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+
+                        while (host):
+                            os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+                    
+                    except:
+                        command_input=str(input('con_hac/Payload/send/web_script> '))
+
+                if command_input=="ping --limit":
+                    try:
+                        limit=input('The Limit : ')
+                        IP=input('IP : ')
+
+                        ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+                        print(ping)
+
+                        while (ping):
+                            ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+                            print(ping)
+                            sleep(float(limit))
+                    
+                    except:
+                        command_input=str(input('con_hac/Payload/send/web_script> '))
+                
+                if command_input=="clr":
+                    os.system('clear')
+
+                    command_input=str(input('con_hac/Payload/send/web_script> '))
+                
+                if command_input=="return":
+                    command_input=str(input('con_hac/Payload/send/web_script> '))
+                
+                if command_input=="//ip":
+                    os.system('ip addr')
+                    command_input=str(input('con_hac/Payload/send/web_script> '))
+
+    if command_input=="show hax":
         print('Hax/web/ip | Run It : use Hax/web/ip'+"\n"+"Description: Find The IP Address Of A Website\n")
         print('Hax/copy/web | Run It : use Hax/copy/web'+"\n"+"Description: Make A Phishing Website To Get Details\n")
         print('Hax/email/bomb | Run It: use Hax/email/bomb'+"\n"+"Description: Spam Someone's Inbox Of Email\n")
         print('Hax/web/scraping | Run It: use Hax/web/scraping'+"\n"+"Description: Scrap Any Website\n")
         print('Hax/pass/attack | Run It: use Hax/pass/attack'+"\n"+"Description: Do a Dictionary Or Brute Force Attack\n")
         print('Hax/network/scan | Run It: use Hax/network/scan'+"\n"+"Description: Port Scanner\n")
-        print('Hax/(content unavalible)'+"\n"+"Description: \n")
-        print('Hax/(content unavalible)'+"\n"+"Description: \n")
+        print('Hax/make/server | Run It: use Hax/make/server'+"\n"+"Description: Make a server choose port\n")
+        print('Hax/make/fil | Run It: use Hax/make/file_text'+"\n"+"Description: Make any file type\n")
+        print('Hax/make/dir | Run It: use Hax/make/directory'+"\n"+"Description: make a directory\n")
+        print('Hax/network/find-vuln | Run It: Hax/network/find-vuln'+"\n"+"Description: find vulns in a network")
         command_input=str(input("con_hac> "))
     
-    if command_input=="use Hax/network/scan":
-        command_input=str(input('con_hac/Hax/network/scan> '))
+    if command_input=="use Hax/make/dir":
 
         while True:
-            command_input=input('con_hac/Hax/network/scan> ')
+            command_input==str(input('con_hac/Hax/make/dir > '))
 
-            if command_input=="scan":
-                begining_port=input('Begining port : ')
-                end_port=input('end port : ')
-                target_ip=input('Ip check : ')
-                scanner=nmap.PortScanner()
+            if command_input=="make dir":
+                dir_name=input('directory_name : ')
+                os.system('mkdir '+dir_name)
 
-                for i in random(begining_port, end_port+1):
-                    res=scanner.scan(target_ip, str(i))
+                command_input==str(input('con_hac/Hax/make/dir> '))
+            
+            if command_input=="ping --limit":
+                try:
+                    limit=input('The Limit : ')
+                    IP=input('IP : ')
+
+                    ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+                    print(ping)
+
+                    while (ping):
+                        ping=os.system("ping " + ("-n 1 " if  platform.system().lower()=="windows" else "-c 1 ") + IP)
+                        print(ping)
+                        sleep(float(limit))
                 
-                command_input=str(input('con_hac/Hax/network/scan> '))
+                except:
+                    command_input==str(input('con_hac/Hax/make/dir> '))
+            
+            if command_input=="clr":
+                os.system('clear')
 
-            if command_input=="scan_check":
-                begining_port=input('Begining port : ')
-                end_port=input('end port : ')
-                target_ip=input('Ip check : ')
-                scanner=nmap.PortScanner()
+                command_input==str(input('con_hac/Hax/make/dir> '))
+            
+            if command_input=="return":
+                command_input==str(input('con_hac/Hax/make/dir> '))
+            
+            if command_input=="//ip":
+                os.system('ip addr')
+                command_input==str(input('con_hac/Hax/make/dir> '))
 
-                for i in random(begining_port, end_port+1):
-                    res=scanner.scan(target_ip, str(i))
-                    res=res['scan'][target_ip]['tcp'][i]['state']
-                    print(f'Port {i} is {res}.')
-
-                    command_input=str(input('con_hac/Hax/network/scan>'))
-    
+    if command_input=="use Hax/network/scan":
+        pass
+        
     if command_input=="use Hax/pass/attack":
         command_input=str(input("con_hac/Hax/pass/attack> "))
 
@@ -697,3 +775,31 @@ while (command_input==command_input):
         ==============================================================================
         ==============================================================================''')
         command_input=str(input("con_hac> "))
+    
+    if command_input=="tp_10_cod_lan":
+        print('''
+        1.Pysploit
+        2.Javascipt
+        3.Java
+        4.C
+        5.SQL
+        6.C#
+        7.Go
+        8.R
+        9.swift
+        10.php
+        ''')
+        command_input=str(input("con_hac> "))
+    
+    if command_input=="tips":
+        tip='try typing show hax or show payload'
+        tip1='did you know that this was made with python 100%'
+        tip2='did you know that this was made by a 12 year old'
+        tip3=''
+
+        choose_tip=random.choice(tip, tip1, tip2, top3)
+        print(choose_tip)
+        command_input=str(input("con_hac> "))
+    
+    if command_input=="":
+        pass
